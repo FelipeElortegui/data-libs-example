@@ -2,9 +2,10 @@ name: pytest
 
 on:
   push:
-    branches: [ "master" ]
+    branches: [ "main" ]
   pull_request:
-    branches: [ "master" ]
+    branches: [ "main" ]
+  workflow_dispatch:
 
 jobs:
   build:
@@ -30,4 +31,4 @@ jobs:
         if [ -f requirements-dev.txt ]; then pip install -r requirements-dev.txt; fi
     - name: Test with pytest
       run: |
-        pytest -vv lib/delivery/dsl
+        pytest -vv libs/delivery/dsl
